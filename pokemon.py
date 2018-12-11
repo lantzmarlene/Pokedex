@@ -16,8 +16,7 @@ class Pokemon:
             for row in reader:
                 if row[1] == self.name:
                     return row[x]
-                else:
-                    return row[0]
+
 
 # function to display data for a pokemon from tkinter
 class GUI:
