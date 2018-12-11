@@ -1,4 +1,3 @@
-from random import *
 from tkinter import *
 import csv
 from PIL import ImageTk, Image
@@ -17,8 +16,8 @@ class Pokemon:
             for row in reader:
                 if row[1] == self.name:
                     return row[x]
-
-
+                else:
+                    return row[0]
 
 # function to display data for a pokemon from tkinter
 class GUI:
@@ -44,7 +43,6 @@ class GUI:
         p1=Pokemon(self.entry.get())
 
         window.title("Pokédex -- Pokédemon Information")
-
         self.label2 = Label(window, text="Pokémon Number: "+p1.getInformation(0), font=("Helvetica 10 bold"), fg="#ffffff", bg="#CC0000")
         self.label2.pack()
         self.label2 = Label(window, text="Name: "+p1.getInformation(1), font=("Helvetica 10 bold"), fg="#ffffff", bg="#CC0000")
@@ -72,8 +70,8 @@ class GUI:
         self.label2 = Label(window, text="Legendary: "+p1.getInformation(12), font=("Helvetica 10 bold"), fg="#ffffff", bg="#CC0000")
         self.label2.pack()
 
+        #Gets images from the a folder in a path
         result = p1.getInformation(0)
-
         path = ("C:/Users/Marlene/PycharmProjects/Pokedex/pokeimagini/" + result + ".png")
         im = Image.open(path)
         tkimage = ImageTk.PhotoImage(im)
